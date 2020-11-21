@@ -8,3 +8,9 @@
 	branch = main
 	update = merge
 	url = https://github.com/aplikacje-internetowe-l2/aplikacja-testujaca
+[submodule "aplikacja-testujaca"]
+	path = aplikacja-testujaca
+	url = https://github.com/aplikacje-internetowe-l2/aplikacja-testujaca.git
+[submodule "aplikacja-glowna"]
+	path = aplikacja-glowna
+	url = https://github.com/aplikacje-internetowe-l2/aplikacja-glowna.git
