@@ -54,16 +54,20 @@ create_lock "${cmd_locking}"
 echo "################################################"
 echo "Uruchomienie docker swarm"
 docker swarm init | true
+
 echo "################################################"
 echo "Aktualizacja submodulow do maina"
 git submodule foreach git pull origin main
+
 echo "################################################"
 echo "Tworzenie sieci z sterownikiem overlay"
 docker network create -d overlay over | true
+
 echo "################################################"
 echo "Uruchamianie aplikacji glownej" 
 cd aplikacja-glowna
 docker stack deploy -c docker-compose.yaml app_glowna
+
 echo "#################################################"
 echo "Uruchamianie plikacji testujacej"
 cd ../aplikacja-testujaca
