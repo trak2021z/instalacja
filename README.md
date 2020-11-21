@@ -1,6 +1,6 @@
 # instalacja
 Pobranie całej aplikacji:
-git clone --recursive https://github.com/aplikacje-internetowe-l2/aplikacja-glowna.git
+git clone --recursive https://github.com/aplikacje-internetowe-l2/instalacja.git
 
 # Wejście do folderu:
 cd instalacja
