@@ -46,7 +46,14 @@ fi
 
 create_lock "${cmd_locking}"
 ##############################################################
+# sudo yum install git 
+# sudo yum install -y yum-utils
+# sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# sudo yum install -y docker-ce docker-ce-cli containerd.io
 
+echo "################################################"
+echo "Uruchomienie docker swarm"
+docker swarm init | true
 echo "################################################"
 echo "Aktualizacja submodulow do maina"
 git submodule foreach git pull origin main
