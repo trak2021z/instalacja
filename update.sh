@@ -59,6 +59,7 @@ if [[ $1 == true ]]; then
     docker service update --image misieq/weii_ai_aplikacja_glowna_backend app_glowna_celery
     docker service update --image misieq/weii_ai_aplikacja_glowna_frontend app_glowna_frontend
     cd ..
+    sleep 10
 fi
 if [[ $2 == true ]]; then
     echo "Aktualizacja aplikacji testowej"
@@ -67,6 +68,7 @@ if [[ $2 == true ]]; then
     docker service update --image misieq/weii_ai_aplikacja_testujaca_backend app_test_celery
     docker service update --image misieq/weii_ai_aplikacja_testujaca_frontend app_test_frontend-test
     cd ..
+    sleep 10
 fi
 echo "################################################"
 
