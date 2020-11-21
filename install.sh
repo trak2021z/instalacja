@@ -64,15 +64,22 @@ echo "################################################"
 echo "Tworzenie sieci z sterownikiem overlay"
 docker network create -d overlay over | true
 
+# Pobieranie obrazow rabbitmq i postgres, docker swarm z jakiegos powodu ich nie pobiera
+docker image pull rabbitmq:3-management
+docker image pull postgres
+
 echo "################################################"
-echo "Uruchamianie aplikacji glownej" 
+echo "Uruchamianie aplikacji glownej"
 cd aplikacja-glowna
 docker stack deploy -c docker-compose.yaml app_glowna
+sleep 30
 
 echo "#################################################"
 echo "Uruchamianie plikacji testujacej"
 cd ../aplikacja-testujaca
 docker stack deploy -c docker-compose.yaml app_test
+sleep 30
+
 
 ###############################################################
 remove_lock "${cmd_unlocking}"
