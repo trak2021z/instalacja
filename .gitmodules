@@ -1,0 +1,10 @@
+[submodule "glowna"]
+	path = glowna
+	branch = main
+	update = merge
+	url = https://github.com/aplikacje-internetowe-l2/aplikacja-glowna
+[submodule "testujaca"]
+	path = testujaca
+	branch = main
+	update = merge
+	url = https://github.com/aplikacje-internetowe-l2/aplikacja-testujaca
