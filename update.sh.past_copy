@@ -63,35 +63,29 @@ echo "################################################"
 if [[ $1 == true ]]; then
     echo "Aktualizacja glownej aplikacji"
     cd aplikacja-glowna
-    docker stack rm app_glowna
-    sleep 15
-    docker container prune -f
-    docker image prune -f
-    sleep 10
     docker image pull  misieq/weii_ai_aplikacja_glowna_backend:latest
     docker image pull  misieq/weii_ai_aplikacja_glowna_frontend:latest
-    sleep 15
-    docker stack deploy -c docker-compose.yaml app_glowna
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_backend:latest app_glowna_backend
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_backend:latest app_glowna_celery
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_frontend:latest app_glowna_frontend
     cd ..
-    sleep 15
+    sleep 10
 fi
 if [[ $2 == true ]]; then
     echo "Aktualizacja aplikacji testowej"
     cd aplikacja-testujaca
-    docker stack rm app_test
-    sleep 15
-    docker container prune -f
-    docker image prune -f
-    sleep 15
     docker image pull  misieq/weii_ai_aplikacja_testujaca_backend:latest
     docker image pull  misieq/weii_ai_aplikacja_testujaca_frontend:latest
-    sleep 10
-    docker stack deploy -c docker-compose.yaml app_test
-    sleep 10
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_backend-test
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_celery
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_frontend:latest app_test_frontend-test
     cd ..
+    sleep 10
 fi
-/bin/sh ./scale.sh
-docker image prune -f
 echo "################################################"
 
 ###############################################################
