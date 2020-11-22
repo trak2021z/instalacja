@@ -50,6 +50,7 @@ create_lock "${cmd_locking}"
 if [[ $1 == "" && $2 == "" ]]; then
     echo "Nie podano zadnego argumentu podaj argumentu, true true - glowna i testowa, true false - glowna, false true - testowa"
     exit 1
+fi
 
 echo "################################################"
 if [[ $1 == true ]]; then
