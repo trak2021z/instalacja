@@ -56,18 +56,26 @@ echo "################################################"
 if [[ $1 == true ]]; then
     echo "Aktualizacja glownej aplikacji"
     cd aplikacja-glowna
-    docker service update --image misieq/weii_ai_aplikacja_glowna_backend app_glowna_backend
-    docker service update --image misieq/weii_ai_aplikacja_glowna_backend app_glowna_celery
-    docker service update --image misieq/weii_ai_aplikacja_glowna_frontend app_glowna_frontend
+    docker image pull  misieq/weii_ai_aplikacja_glowna_backend:latest
+    docker image pull  misieq/weii_ai_aplikacja_glowna_frontend:latest
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_backend:latest app_glowna_backend
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_backend:latest app_glowna_celery
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_glowna_frontend:latest app_glowna_frontend
     cd ..
     sleep 10
 fi
 if [[ $2 == true ]]; then
     echo "Aktualizacja aplikacji testowej"
     cd aplikacja-testujaca
-    docker service update --image misieq/weii_ai_aplikacja_testujaca_backend app_test_backend-test
-    docker service update --image misieq/weii_ai_aplikacja_testujaca_backend app_test_celery
-    docker service update --image misieq/weii_ai_aplikacja_testujaca_frontend app_test_frontend-test
+    docker image pull  misieq/weii_ai_aplikacja_testujaca_backend-test:latest
+    docker image pull  misieq/weii_ai_aplikacja_testujaca_frontend-test:latest
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_backend-test
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_celery
+    sleep 5
+    docker service update --force --image misieq/weii_ai_aplikacja_testujaca_frontend:latest app_test_frontend-test
     cd ..
     sleep 10
 fi
