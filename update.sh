@@ -52,6 +52,13 @@ if [[ $1 == "" && $2 == "" ]]; then
     exit 1
 fi
 
+cd aplikacja-testujaca
+git submodule foreach git pull origin main
+cd ..
+cd aplikacja-glowna
+git submodule foreach git pull origin main
+cd ..
+
 echo "################################################"
 if [[ $1 == true ]]; then
     echo "Aktualizacja glownej aplikacji"
@@ -69,8 +76,8 @@ fi
 if [[ $2 == true ]]; then
     echo "Aktualizacja aplikacji testowej"
     cd aplikacja-testujaca
-    docker image pull  misieq/weii_ai_aplikacja_testujaca_backend-test:latest
-    docker image pull  misieq/weii_ai_aplikacja_testujaca_frontend-test:latest
+    docker image pull  misieq/weii_ai_aplikacja_testujaca_backend:latest
+    docker image pull  misieq/weii_ai_aplikacja_testujaca_frontend:latest
     docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_backend-test
     sleep 5
     docker service update --force --image misieq/weii_ai_aplikacja_testujaca_backend:latest app_test_celery
