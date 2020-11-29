@@ -90,7 +90,7 @@ if [[ $2 == true ]]; then
     sleep 10
     cd ..
 fi
-/bin/sh ./scale.sh
+/bin/sh ./scale.sh 5
 docker image prune -f
 echo "################################################"
 
