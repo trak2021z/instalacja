@@ -5,7 +5,7 @@
 set -e 
  
 working_dir=$1
-lock_file_or_dir="./.update.lock"
+lock_file_or_dir="./.remove.lock"
 cmd_locking="touch ${lock_file_or_dir}"
 cmd_check_lock="test -f ${lock_file_or_dir}"
 cmd_unlocking="rm -rf ${lock_file_or_dir}"
