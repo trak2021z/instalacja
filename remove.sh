@@ -54,6 +54,9 @@ echo "Usuwanie aplikacji testujacej"
 docker stack rm app_test | true
 echo "Usuwanie sieci"
 docker network rm over | true 
-
+echo "Usuwanie volumenow"
+docker volume prune | true
+echo "Usuwanie obrazow"
+docker image prune | true
 ###############################################################
 remove_lock "${cmd_unlocking}"
