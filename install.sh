@@ -46,10 +46,10 @@ fi
 
 create_lock "${cmd_locking}"
 ##############################################################
-# sudo yum install git 
-# sudo yum install -y yum-utils
-# sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-# sudo yum install -y docker-ce docker-ce-cli containerd.io
+# sudo apt-get update
+# sudo apt-get install git 
+# sudo apt-get install -y yum-utils
+# sudo apt-get install docker-ce docker-ce-cli containerd.io
 # sudo systemctl start docker
 
 echo "################################################"
