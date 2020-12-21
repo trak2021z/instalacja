@@ -48,7 +48,7 @@ create_lock "${cmd_locking}"
 ##############################################################
 # sudo apt-get update
 # sudo apt-get install git 
-# sudo apt-get install -y yum-utils
+# sudo curl -sSL https://get.docker.com/ | sh
 # sudo apt-get install docker-ce docker-ce-cli containerd.io
 # sudo systemctl start docker
 
