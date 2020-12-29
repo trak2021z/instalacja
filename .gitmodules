@@ -2,9 +2,9 @@
 	path = aplikacja-testujaca
         branch = main
         update = merge 
-	url = https://github.com/aplikacje-internetowe-l2/aplikacja-testujaca.git
+	url = https://github.com/trak2021z/aplikacja-testujaca.git
 [submodule "aplikacja-glowna"]
 	path = aplikacja-glowna
         branch = main
         update = merge
-	url = https://github.com/aplikacje-internetowe-l2/aplikacja-glowna.git
+	url = https://github.com/trak2021z/aplikacja-glowna.git
